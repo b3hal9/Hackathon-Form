@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+    .custom{
+        
+        justify-content: center;
+        
+    }
+    </style>
+</head>
+<body>
+
+    
+
+      
+            <div class="container pt-5  custom" >
+               
+                <div class="card"  style="align-items: center;">
+                 <div class="card-header text-center text-dark"><p class="h2" style="text-decoration: underline ;">Godawari Hackathon:</p></div>
+                 <div class="card-body text-dark" style=" background-image: url(1.jpg); ">
+                <form action="/register" method="POST">
+                  
+                      <div class="form-group">
+                        <label for = 'username'>Username :</label>
+                        <input type="text" name="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for = 'email'>Email :</label>
+                        <input type="email" class="form-control" name ="email" placeholder="name@example.com">
+                        <small class="form-text text-muted">Please use your valid Email Address.</small>
+                      </div>
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">+977</div>
+                        </div>
+                        <input type="number" name="phone" class="form-control" placeholder="Your Phone number: ">
+                      </div>
+                    
+                    <!-- <div class="form-group">
+                      <label >Address :</label>
+                      <input type="text" class="form-control" placeholder="Your Current Address">
+                    </div>
+                   -->
+                      <div class="form-group col-md-">
+                        <label for = "faculty" >Faculty :</label>
+                        <select name ="faculty" class="form-control" >
+                          <option  value="Bsc.CSIT" selected>Bsc.CSIT</option>
+                          <option  value="Diploma Civil">Diploma Civil</option>
+                          <option  value="Diploma Computer">Diploma Computer</option>
+                          <option value="Management">Management</option>
+                          <option  value="Science">Science</option>
+                          <option value="Hotel Management">Hotel Management</option>
+                          <option  value="BBS">BBS</option>
+
+                        </select>
+                      </div>
+                      <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <select name="class" class="form-control">
+                              <optgroup label="+2">
+                                <option  value="11">11</option>
+                                <option  value="12">12</option>
+                              </optgroup>
+                              <optgroup label="Diplo">
+                                <option>1yr</option>
+                                <option>2yr</option>
+                                <option>3yr</option>
+                              </optgroup>
+                              <optgroup label="Bchlr">
+                                <option>1yr</option>
+                                <option>2yr</option>
+                                <option>3yr</option>
+                                <option>4yr</option>
+                              </optgroup>
+                            </select>
+
+                          </div>
+                        </div>
+                        <input type="text" name="section" class="form-control" placeholder="Mention your Section here. ">
+                      </div>
+                      <div class="form-group col-md-">
+                        <label for="field">Your Field of Interest :</label>
+                        <select  name="field" class="form-control">
+                          <option  value="Static Webpage Designing">Static Web Page Designing</option>
+                          <option  value="Competitive Programming">Competitive Programming</option>
+                          
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="sex" class="form-check-label" >
+                            Gender : 
+                           </label>
+                        <div class="form-check">
+                            
+                          <input class="form-check-input" type="radio" name="sex" value="Male">
+                          <label for="male" class="form-check-label" >
+                           Male
+                          </label>
+                        </div>
+                        <div class="form-check">
+                           
+                            <input class="form-check-input" type="radio" name="sex" value="female">
+                            <label  for="Female" class="form-check-label" >
+                             Female
+                            </label>
+                          </div>
+                      </div>
+                     
+                      <div class="form-group">
+                        <label for="feedback">Feedback :</label>
+                        <textarea class="form-control" name="feedback" placeholder = "Your Suggestion."></textarea>
+                    </div>
+                  
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" name="agreement" type="checkbox" >
+                        <label for="agreement" class="form-check-label">
+                          I Agree. <a href="#" >Please Read Our Terms & Conditions Before Sumbiting.</a>
+                        </label>
+                      </div>
+                    </div>
+                
+                    
+                    <button type="submit" name ="submit" class="btn btn-primary">Register</button>
+                  </form>
+                  </div>
+            
+        </div>
+      </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
