@@ -30,7 +30,7 @@ router.post('/register',[
 if(!errors.isEmpty()){
     // return res.status(422).json({errors: errors.mapped()});
 
-    res.render('../views/index',{title: 'inv        alid data', error:errors.mapped(),data:data});
+    res.render('../views/index',{title: 'invalid data', error:errors.mapped(),data:data});
     
 }else{
 res.render("../views/register" , {title: 'Data Saved',
