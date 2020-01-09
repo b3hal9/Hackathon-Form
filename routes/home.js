@@ -56,8 +56,8 @@ async function save_data(req, res){
             user_data.save()
             .then(()=>{console.log("data saved")})
             .catch((err)=>console.error(err));
-            res.render("../views/register" , {title: 'Data Saved',
-            message: 'Thanks, Your Registration is Successful.'});
+            res.render("../views/contact" , {title: 'Data Saved',
+            message: 'Register Successful'});
             console.log(req.body);
         }
         else{
