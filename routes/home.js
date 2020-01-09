@@ -10,7 +10,7 @@ router.get('/',(req,res)=>{
     res.sendFile('../src/index',{root:__dirname});
 })
 router.post('/register',[
-    body('first', '*invalid username').isLength({min:4, max:12}).not().isEmpty(),
+    body('first', '*invalid username').isLength({min:3, max:12}).not().isEmpty(),
     body('last', '*invalid username').not().isEmpty(),
     body('email', 'invalid email.').isEmail().normalizeEmail().not().isEmpty(),
     body('phone','*invalid phone number').isLength({min:10 , max:10}).not().isEmpty(),
@@ -48,8 +48,9 @@ async function save_data(req, res){
     const section = req.body.section;
     const Grade = req.body.Grade;
     const sex = req.body.sex;
+    const data =matchedData(req);
     const user_data = new Posts({first,last,email,phone,faculty,field,section,sex,Grade});
-    const check_data = Posts.find({email: req.body.email})
+    const check_data = Posts.findOne({email: req.body.email})
       .then((user)=>{
         if(!user){
             user_data.save()
@@ -61,7 +62,7 @@ async function save_data(req, res){
         }
         else{
             res.render("../views/index1" , {title: 'Invalid Form ',
-            message: 'User already registered.'});
+            message: 'User already registered.',error:errors.mapped(),data:data});
         }
       })
       .catch(err=>console.error(err));

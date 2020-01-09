@@ -9,8 +9,9 @@ const router = require('./routes/home');
 
 const Posts = require('./models/user.model');
 const cors = require('cors');
+require('dotenv').config();
 
-// app.use(cors);
+app.use(cors());
 app.use(express.static( './src'));
 app.use(bodyparser.urlencoded({extended: false}));
 app.set("view engine", "ejs");
