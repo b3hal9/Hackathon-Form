@@ -21,12 +21,19 @@ const PORT = process.env.PORT ||5000;
 
 
 
-mongoose.connect('mongodb+srv://bsaal:halbistabis@cluster0-2sbsy.mongodb.net/test?retryWrites=true&w=majority' ,{ useNewUrlParser: true,useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://bsaal:halbistabis@cluster0-2sbsy.mongodb.net/test?retryWrites=true&w=majority' ,{ useNewUrlParser: true,useUnifiedTopology: true })
     .then(()=>console.log('connected to MongoDb'))
     .catch(err=>console.error('disconnected',err));
 
 
+
+
+
+
 app.use(router);
+
+
+
 server.listen(PORT,()=>{
     console.log(`server is running on PORT: ${PORT}.`);
 })
