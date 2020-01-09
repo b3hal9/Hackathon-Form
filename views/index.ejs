@@ -22,127 +22,128 @@
             <h3 style="text-align: center;">Please fill all the Forms before submiting..</h3>
             <div class="container pt-5  custom" >
                
-                <div class="card"  style="align-items: center;">
-                 <div class="card-header text-center text-dark"><p class="h2" style="text-decoration: underline ;">Godawari Hackathon:</p></div>
-                 <div class="card-body bg-dark text-white">
-                <form action="/register" method="POST">
+              <div class="card"  style="align-items: center;">
+               <div class="card-header text-center text-dark"><p class="h2" style="text-decoration: underline ;">Godawari Hackathon:</p></div>
+               <div class="card-body bg-dark text-white">
+              <form action="/register" method="POST">
+                <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="first">First Name:</label>
+                  <input type="text" class="form-control" name="first" value="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="last">Last Name:</label>
+                  <input type="text" class="form-control" name="last" value="">
+                </div>
+              </div>
+                  <div class="form-group">
+                      <label for = 'email'>Email :</label>
+                      <input type="email" class="form-control" name ="email" placeholder="name@example.com" required>
+                      <small class="form-text text-muted">Please use your valid Email Address.</small>
+                    </div>
+                  <div class="input-group mb-2 mr-sm-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">+977</div>
+                      </div>
+                      <input type="number" name="phone" class="form-control" placeholder="Your Phone number: " required>
+                    </div>
                   
-                      <div class="form-group">
-                        <label for = 'username'><span style="color: red;">*</span>Username :</label>
-                        <input type="text"  name="username" class="form-control" value="">
-                    </div>
-                    <div class="form-group">
-                        <label for = 'email'></label><span style="color: red;">*</span>Email :</label>
-                        <input type="email" class="form-control" name ="email" placeholder="name@example.com" value="">
-                        <small class="form-text text-muted">Please use your valid Email Address.</small>
-                      </div>
-                    <div class="input-group mb-2 mr-sm-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text"><span style="color: red;">*</span>+977</div>
-                        </div>
-                        <input type="number" name="phone" class="form-control" placeholder="Your Phone number: " value="">
-                        
-                        
-                      </div>
-                      
-                      
-                      
-                    <!-- <div class="form-group">
-                      <label >Address :</label>
-                      <input type="text" class="form-control" placeholder="Your Current Address">
-                    </div>
-                   -->
-                      <div class="form-group col-md-">
-                        <label for = "faculty" >Faculty :</label>
-                        <select name ="faculty" class="form-control" >
-                          <option  value="Bsc.CSIT" selected>Bsc.CSIT</option>
-                          <option  value="Diploma Civil">Diploma Civil</option>
-                          <option  value="Diploma Computer">Diploma Computer</option>
-                          <option value="Management">Management</option>
-                          <option  value="Science">Science</option>
-                          <option value="Hotel Management">Hotel Management</option>
-                          <option  value="BBS">BBS</option>
+                  <!-- <div class="form-group">
+                    <label >Address :</label>
+                    <input type="text" class="form-control" placeholder="Your Current Address">
+                  </div>
+                 -->
+                    <div class="form-group col-md-">
+                      <label for = "faculty" >Faculty :</label>
+                      <select name ="faculty" class="form-control" >
+                        <option  value="Bsc.CSIT" selected>Bsc.CSIT</option>
+                        <option  value="Diploma Civil">Diploma Civil</option>
+                        <option  value="Diploma Computer">Diploma Computer</option>
+                        <option value="Management">Management</option>
+                        <option  value="Science">Science</option>
+                        <option value="Hotel Management">Hotel Management</option>
+                        <option  value="BBS">BBS</option>
 
+                      </select>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <select name="Grade" class="form-control">
+                          <option value="3rd yr" selected >3rd yr</option>
+                          <optgroup label="+2">
+                            <option  value="11">11</option>
+                            <option  value="12">12</option>
+                          </optgroup>
+                          <optgroup label="Diploma">
+                            <option value="1st yr">1yr</option>
+                            <option value="2nd yr">2yr</option>
+                            <option value="3rd yr">3yr</option>
+                          </optgroup>
+                          <optgroup label="Bachelor">
+                            <option value="1st yr">1yr</option>
+                            <option value="2nd yr">2yr</option>
+                            <option value="3rd yr">3yr</option>
+                            <option value="4th yr">4yr</option>
+                          </optgroup>
                         </select>
                       </div>
-                      <div class="input-group mb-2 mr-sm-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">
-                            <select name="class" class="form-control">
-                              <optgroup label="+2">
-                                <option  value="11">11</option>
-                                <option  value="12">12</option>
-                              </optgroup>
-                              <optgroup label="Diploma">
-                                <option value="1yr">1yr</option>
-                                <option value="2yr">2yr</option>
-                                <option value="3yr">3yr</option>
-                              </optgroup>
-                              <optgroup label="Bachelor">
-                                <option value="1yr">1yr</option>
-                                <option value="2yr">2yr</option>
-                                <option value="3yr">3yr</option>
-                                <option value="4yr">4yr</option>
-                              </optgroup>
-                            </select>
-
-                          </div>
-                        </div>
+                      <div class="form-group col-md-6">
                         <input type="text" name="section" class="form-control" placeholder="Mention your Section here. ">
                       </div>
-                      <div class="form-group col-md-">
-                        <label for="field">Your Field of Interest :</label>
-                        <select  name="field" class="form-control">
-                          <option  value="Static Webpage Designing">Static Web Page Designing</option>
-                          <option  value="Competitive Programming">Competitive Programming</option>
-                          
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="sex" class="form-check-label" >
-                            <span style="color: red;">*</span>Gender : 
-                           </label>
-                        <div class="form-check">
-                            
-                          <input class="form-check-input" type="radio" name="sex" value="Male">
-                          <label for="male" class="form-check-label" >
-                           Male
-                          </label>
-                        </div>
-                        <div class="form-check">
-                           
-                            <input class="form-check-input" type="radio" name="sex" value="female">
-                            <label  for="Female" class="form-check-label" >
-                             Female
-                            </label>
-                          </div>
-                         
-                         
-                      </div>
-                      <div class="form-group">
-                        <label for="feedback">Feedback :</label>
-                        <textarea class="form-control" name="feedback" placeholder = "Your Suggestion."></textarea>
                     </div>
-                  
+                    
+                     
+                    
+                    <div class="form-group col-md-">
+                      <label for="field">Your Field of Interest :</label>
+                      <select  name="field" class="form-control">
+                        <option  value="Static Webpage Designing">Static Web Page Designing</option>
+                        <option  value="Competitive Programming">Competitive Programming</option>
+                        
+                      </select>
+                    </div>
                     <div class="form-group">
+                      <label for="sex" class="form-check-label" >
+                          Gender : 
+                         </label>
                       <div class="form-check">
-                        <input class="form-check-input" name="agreement" type="checkbox" >
-                        <label for="agreement" class="form-check-label">
-                            <span style="color: red;">*</span>I Agree. <a href="#" >Please Read Our Terms & Conditions Before Sumbiting.</a>
+                          
+                        <input class="form-check-input" type="radio" name="sex" value="Male" required>
+                        <label for="male" class="form-check-label" >
+                         Male
                         </label>
                       </div>
-                      
+                      <div class="form-check">
+                         
+                          <input class="form-check-input" type="radio" name="sex" value="female" required>
+                          <label  for="Female" class="form-check-label" >
+                           Female
+                          </label>
+                        </div>
                     </div>
-                    
                    
-                
-                    
-                    <button type="submit" name ="submit" class="btn btn-primary">Register</button>
-                  </form>
+                    <div class="form-group">
+                      <label for="feedback">Feedback :</label>
+                      <textarea class="form-control" name="feedback" placeholder = "Your Suggestion."></textarea>
                   </div>
-            
-        </div>
+                
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" name="agreement" type="checkbox"required>
+                      <label for="agreement" class="form-check-label">
+                        I Agree. <a href="#" >Please Read Our Terms & Conditions Before Sumbiting.</a>
+                      </label>
+                    </div>
+                  </div>
+              
+                  
+                  <button type="submit" name ="submit" class="btn btn-primary">Register</button>
+                </form>
+                </div>
+          
       </div>
+    </div>
+
 
 
 

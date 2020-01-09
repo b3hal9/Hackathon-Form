@@ -2,22 +2,22 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
-
-const {body, validationResult} = require('express-validator/check');
-const {matchedData,sanitizeBody} = require('express-validator/filter');
+const Posts = require('../models/user.model');
+const {body, validationResult} = require('express-validator');
+const {matchedData,sanitizeBody} = require('express-validator');
 
 router.get('/',(req,res)=>{
     res.sendFile('../src/index',{root:__dirname});
 })
 router.post('/register',[
-    body('username', 'invalid username').isLength({min:6}).not().isEmpty(),
+    body('first', 'invalid username').not().isEmpty(),
+    body('last', 'invalid username').not().isEmpty(),
     body('email', 'invalid email.').isEmail().normalizeEmail().not().isEmpty(),
     body('phone','invalid number').isLength({min:10 , max:10}).not().isEmpty(),
     body('faculty', 'choose your faculty').not().isEmpty(),
     body('sex', 'mention your sex.').not().isEmpty(),
-    body('class','class is required').not().isEmpty(),
+    body('Grade','class is required').not().isEmpty(),
     body('field', 'mention your field.').not().isEmpty(),
-    // body('feedback','feedback is required').not().isEmpty(),
     body('agreement', 'check the box.').not().isEmpty(),
    
 
@@ -33,11 +33,28 @@ if(!errors.isEmpty()){
     res.render('../views/index',{title: 'invalid data', error:errors.mapped(),data:data});
     
 }else{
-res.render("../views/register" , {title: 'Data Saved',
-        message: 'Thanks, Your Registration is Successful.'});
-        console.log(req.body);
-    }
+    save_data(req,res);
+    res.render("../views/register" , {title: 'Data Saved',
+            message: 'Thanks, Your Registration is Successful.'});
+            console.log(req.body);
+        }
 })
+async function save_data(req, res){
+    const first = req.body.first;
+    const last = req.body.last;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const faculty = req.body.phone;
+    const field = req.body.field;
+    const section = req.body.section;
+    const Grade = req.body.Grade;
+    const sex = req.body.sex;
+    const user_data = new Posts({first,last,email,phone,faculty,field,section,sex,Grade});
+    await user_data.save()
+        .then(()=>{console.log("data saved")})
+        .catch((err)=>console.error(err));
+
+}
 
 
 
