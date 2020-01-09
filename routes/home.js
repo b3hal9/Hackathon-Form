@@ -10,10 +10,10 @@ router.get('/',(req,res)=>{
     res.sendFile('../src/index',{root:__dirname});
 })
 router.post('/register',[
-    body('first', 'invalid username').not().isEmpty(),
-    body('last', 'invalid username').not().isEmpty(),
+    body('first', '*invalid username').isLength({min:4, max:12}).not().isEmpty(),
+    body('last', '*invalid username').not().isEmpty(),
     body('email', 'invalid email.').isEmail().normalizeEmail().not().isEmpty(),
-    body('phone','invalid number').isLength({min:10 , max:10}).not().isEmpty(),
+    body('phone','*invalid phone number').isLength({min:10 , max:10}).not().isEmpty(),
     body('faculty', 'choose your faculty').not().isEmpty(),
     body('sex', 'mention your sex.').not().isEmpty(),
     body('Grade','class is required').not().isEmpty(),
@@ -29,16 +29,15 @@ router.post('/register',[
 
 if(!errors.isEmpty()){
     // return res.status(422).json({errors: errors.mapped()});
-
+    
     res.render('../views/index',{title: 'invalid data', error:errors.mapped(),data:data});
     
+
 }else{
     save_data(req,res);
-    res.render("../views/register" , {title: 'Data Saved',
-            message: 'Thanks, Your Registration is Successful.'});
-            console.log(req.body);
-        }
-})
+
+    
+}
 async function save_data(req, res){
     const first = req.body.first;
     const last = req.body.last;
@@ -50,11 +49,25 @@ async function save_data(req, res){
     const Grade = req.body.Grade;
     const sex = req.body.sex;
     const user_data = new Posts({first,last,email,phone,faculty,field,section,sex,Grade});
-    await user_data.save()
-        .then(()=>{console.log("data saved")})
-        .catch((err)=>console.error(err));
-
+    const check_data = Posts.find({email: req.body.email})
+      .then((user)=>{
+        if(!user){
+            user_data.save()
+            .then(()=>{console.log("data saved")})
+            .catch((err)=>console.error(err));
+            res.render("../views/register" , {title: 'Data Saved',
+            message: 'Thanks, Your Registration is Successful.'});
+            console.log(req.body);
+        }
+        else{
+            res.render("../views/index1" , {title: 'Invalid Form ',
+            message: 'User already registered.'});
+        }
+      })
+      .catch(err=>console.error(err));
 }
+}
+);
 
 
 
