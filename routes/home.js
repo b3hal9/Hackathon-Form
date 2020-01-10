@@ -5,10 +5,13 @@ const app = express();
 const Posts = require('../models/user.model');
 const {body, validationResult} = require('express-validator');
 const {matchedData,sanitizeBody} = require('express-validator');
+app.use(express.static(__dirname + './src'));
 
 router.get('/',(req,res)=>{
     res.sendFile('../src/index',{root:__dirname});
 })
+
+
 router.post('/register',[
     body('first', '*invalid username').isLength({min:3, max:12}).not().isEmpty(),
     body('last', '*invalid username').not().isEmpty(),

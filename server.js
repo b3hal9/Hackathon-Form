@@ -22,6 +22,11 @@ const PORT = process.env.PORT ||5000;
 
 
 app.use(router);
+app.get('/about',(req, res)=>{
+    
+    res.render('terms',{});
+})
+
 
 
 
