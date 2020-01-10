@@ -60,7 +60,7 @@ async function save_data(req, res){
             .then(()=>{console.log("data saved")})
             .catch((err)=>console.error(err));
             res.render("../views/contact" , {title: 'Data Saved',
-            message: 'Thankyou!'});
+            message: 'Saved'});
             console.log(req.body);
         }
         else{

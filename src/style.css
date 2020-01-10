@@ -21,15 +21,15 @@ body{
     padding: 0 20px;
 }
 .card1{
-    background: url('../src/11.jpg') no-repeat;
+    background: url('./11.jpg') no-repeat;
     color: rgb(195, 0, 255);
 }
 .card2{
-    background: url('../src/21.jpg') no-repeat ;
+    background: url('./21.jpg') no-repeat ;
     color: rgb(195, 0, 255);
 }
 .card3{
-    background: url('../src/v2.jpg') no-repeat ;
+    background: url('./v2.jpg') no-repeat ;
     color: rgb(195, 0, 255);
 }
 
