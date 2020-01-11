@@ -4,6 +4,7 @@
     padding: 0;
     font-family: "montserrat", sans-serif;
     box-sizing: border-box;
+    background: url('./1.jpg') no-repeat;
 }
 body{
     background: #f1f1f1;

@@ -1,0 +1,88 @@
+*{
+    font-family: sans-serif;
+}
+.textbox{
+border-bottom : 2px solid #4caf50;
+margin: 8px 0;
+font-size: 20px;
+overflow: hidden;
+width: 100%;
+}
+.textbox i{
+width: 10px;
+float: left;
+text-align: center;
+padding: 2px;
+padding-right: 20px;
+}
+.textbox input{
+border: none;
+background: none;
+outline: none;
+color: black;
+font-size: 18px;
+width: 80%;
+float: left;
+margin: 0 10px;
+}
+.textbox select{
+border: none;
+background: none;
+outline: none;
+color: black;
+font-family: sans-serif;
+font-size: 18px;
+width: 80%;
+float: left;
+margin: 0 10px;
+}
+.textbox textarea{
+border: none;
+background: none;
+outline: none;
+color: black;
+font-size: 18px;
+width: 80%;
+float: left;
+margin: 0 10px;
+}
+.btn2{
+width: 100%;
+background: none;
+border: 2px solid #4caf50;
+color:navy;
+padding:5px;
+cursor: pointer;
+font-size: 18px;
+margin: 12px 0;
+}
+.radio1{
+width: 18px;
+height: 18px;
+}
+
+.ms{
+    display: inline-block;
+    width:35px;
+    height: 35px;
+   
+    color:#3498db;
+    overflow: hidden;
+    
+}
+.ms i{
+
+    font-size: 35px;
+    transition: 0.2s linear;
+
+}
+.arrange{
+    margin-top: 30px;
+    margin-bottom: 0px;
+    align-self: auto;
+    align-items: baseline;
+}
+.mk{
+    margin-bottom: 2px;
+    padding-bottom: 1px;
+}

@@ -4,157 +4,264 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%=title%></title>
+    <title><%= title%></title>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style>
-    .custom{
-        
-        justify-content: center;
-        
-    }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="media.css">
 </head>
 <body>
 
     
-            <!-- <h2 style="text-align: center; color:red;"><%=title%></h2>
-            <h3 style="text-align: center;">Please fill all the Forms before submiting..</h3> -->
+
+  <h3 style="text-align: center; text-decoration: underline ; font-weight: bold; color: #4caf50;"><%= message%></h3>
             <div class="container pt-5  custom" >
                
-              <div class="card"  style="align-items: center;">
-               <div class="card-header text-center text-dark"><p class="h2" style="text-decoration: underline ; font-weight: bold;">Godawari Hackathon:</p></div>
-               <div class="card-body bg-dark text-white">
-              <form action="/register" method="POST">
-                <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="first">First Name:</label>
-                  <input type="text" class="form-control" name="first" required value="<%= data.first %>" >
-                  <% if(error.first) { %>
-                    <p style="color: red;"><%=error.first.msg%></p>
+                <div class="card"  style="align-items: center; border: none; outline: none;">
+                 <div class="card-header text-center text-dark bg-transparent" style="align-items: center; border: none; outline: none;"><p class="h3" style="text-decoration: underline ; font-weight: bold; color: #4caf50;">Godawari Hackathon:</p></div>
+                 <div class="card-body mk text-dark" style="background-color: #33d9b2; border-radius: 10px; border: 2px solid #4caf50;">
+                <form action="/register" method="POST">
+                  <div class="form-row">
+                  <div class="form-group col-md-6">
+                   <div class="textbox">
+                    <i class="card-box fa fa-user"></i> <input type="text" name="first" required placeholder="First Name" value="<%= data.first%>">
+                   </div>
+                   <% if(error.first) { %>
+                    <p style="color: red;"><%= error.first.msg%></p>
                   <% } %>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="last">Last Name:</label>
-                  <input type="text" class="form-control" name="last" required value="<%= data.last %>">
-                </div>
-              </div>
-                  <div class="form-group">
-                      <label for = 'email'>Email :</label>
-                      <input type="email" class="form-control" name ="email" placeholder="name@example.com" required value="<%= data.email %>">
-                      <small class="form-text text-muted">Please use your valid Email Address.</small>
-                    </div>
-                  <div class="input-group mb-2 mr-sm-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">+977</div>
-                      </div>
-                      <input type="number" name="phone" class="form-control" placeholder="Your Phone number: " required value="<%= data.phone %>">
-                      
-                    </div>
-                    <% if(error.phone) { %>
-                      <p style="color: red;"><%=error.phone.msg%></p>
-                    <% } %>
-                  
-                  <!-- <div class="form-group">
-                    <label >Address :</label>
-                    <input type="text" class="form-control" placeholder="Your Current Address">
+                   
                   </div>
-                 -->
-                    <div class="form-group col-md-">
-                      <label for = "faculty" >Faculty :</label>
-                      <select name ="faculty" class="form-control" value="<%= data.faculty %>">
-                        <option  value="Bsc.CSIT" selected>Bsc.CSIT</option>
-                        <option  value="Diploma Civil">Diploma Civil</option>
-                        <option  value="Diploma Computer">Diploma Computer</option>
-                        <option value="Management">Management</option>
-                        <option  value="Science">Science</option>
-                        <option value="Hotel Management">Hotel Management</option>
-                        <option  value="BBS">BBS</option>
-
-                      </select>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <select name="Grade" class="form-control" value="<%= data.Grade %>">
-                          <option value="3rd yr" selected >3rd yr</option>
-                          <optgroup label="+2">
-                            <option  value="11">11</option>
-                            <option  value="12">12</option>
-                          </optgroup>
-                          <optgroup label="Diploma">
-                            <option value="1st yr">1yr</option>
-                            <option value="2nd yr">2yr</option>
-                            <option value="3rd yr">3yr</option>
-                          </optgroup>
-                          <optgroup label="Bachelor">
-                            <option value="1st yr">1yr</option>
-                            <option value="2nd yr">2yr</option>
-                            <option value="3rd yr">3yr</option>
-                            <option value="4th yr">4yr</option>
-                          </optgroup>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-6">
-                        <input type="text" name="section" class="form-control" placeholder="Mention your Section here. " value="<%= data.section %>">
-                      </div>
-                    </div>
+                  <div class="form-group col-md-6">
+                    <div class="textbox"><input type="text" name="last" required placeholder="Last Name" value="<%= data.last%>"></div>
+                    <% if(error.last) { %>
+                      <p style="color: red;"><%= error.last.msg%></p>
+                    <% } %>
+                  </div>
+                 
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
                     
-                     
-                    
-                    <div class="form-group col-md-">
-                      <label for="field">Your Field of Interest :</label>
-                      <select  name="field" class="form-control" value="<%= data.field %>">
-                        <option  value="Static Webpage Designing">Static Web Page Designing</option>
-                        <option  value="Competitive Programming">Competitive Programming</option>
-                        
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="sex" class="form-check-label" >
-                          Gender : 
-                         </label>
-                      <div class="form-check">
-                          
-                        <input class="form-check-input" type="radio" name="sex" value="Male" required value="<%= data.sex %>">
-                        <label for="male" class="form-check-label" >
-                         Male
-                        </label>
-                      </div>
-                      <div class="form-check">
-                         
-                          <input class="form-check-input" type="radio" name="sex" value="female" required value="<%= data.sex %>">
-                          <label  for="Female" class="form-check-label" >
-                           Female
-                          </label>
+                        <div class="textbox">
+                            <i class="card-icon far fa-envelope"></i> <input type="email"  name ="email" placeholder="Email Address" required value="<%= data.email%>">
                         </div>
+                        
+                            <small class="form-text text-muted">Please use your valid Email Address.</small>
+                    </div>
+                    <div class="form-group col-md-6">
+                    
+                        <div class="textbox">
+                            <i class="card-icon fas fa-phone"></i><input type="number" name="phone" placeholder="Phone Number " required value="<%= data.phone%>">
+                        </div>
+                        <% if(error.phone) { %>
+                          <p style="color: red;"><%= error.phone.msg%></p>
+                        <% } %>
+                        
+                    
+                    </div>
+                </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="textbox">
+                                    <i class="card-icon fas fa-map-marker-alt"></i> <input type="text" name="address" placeholder="Your Address" value="<%= data.address%>">
+                                </div>
+                                <% if(error.address) { %>
+                                  <p style="color: red;"><%= error.address.msg%></p>
+                                <% } %>
+                            </div>
+                      
+                          <div class="form-group col-md-6">
+                            <div class="textbox"><i class="fas fa-layer-group"></i><input type="text" name="section"  placeholder="Your section/Semister "  value="<%= data.section%>"></div>
+                          
+                            <small class="form-text text-muted">This is not mandatory.</small>
+                             
+                          </div>
                     </div>
                    
-                    <div class="form-group">
-                      <label for="feedback">Feedback :</label>
-                      <textarea class="form-control" name="feedback" placeholder = "Your Suggestion." value="<%= data.feedback %>"></textarea>
-                  </div>
-                
-                  <div class="form-group">
-                    <div class="form-check">
-                      <input class="form-check-input" name="agreement" type="checkbox"required value="<%= data.agreement %>">
-                      <label for="agreement" class="form-check-label">
-                        I Agree. <a href="/about" >Please Read Our Terms & Conditions Before Sumbiting.</a>
-                      </label>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="textbox">
+                           
+                                   <select id="faculty" onchange="setGrade()" name ="faculty"  required  value="<%= data.faculty%>">
+                                       <option selected>Faculty</option>
+                                   <option  value="Bsc.CSIT">Bsc.CSIT</option>
+                                   <option  value="Diploma Civil">Diploma Civil</option>
+                                   <option  value="Diploma Computer">Diploma Computer</option>
+                                   <option value="Management">Management</option>
+                                   <option  value="Science">Science</option>
+                                   <option value="Hotel Management">Hotel Management</option>
+                                   <option  value="BBS">BBS</option>
+           
+                                   </select>
+                           </div>
+                       </div>
+                        <div class="form-group col-md-6">
+                            <div class="textbox">
+                          <select id="Grade" name="Grade"  required value="<%= data.Grade%>">
+                            <option selected>Class</option>
+                            <option value="1st yr">1st yr</option>
+                            <option value="2nd yr">2nd yr</option>
+                            <option value="3rd yr">3rd yr</option>
+                            <option value="4th yr">4th yr</option>           
+                        </select>
+                        </div>
+                        </div>
+                     
+                      </div>
+                      
+                       
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="textbox">
+                                <select  name="field" value="<%= data.field%>" >
+                                    <option selected>Interested In</option>
+                                    <option  value="Static Webpage Designing">Static WebPage Designing</option>
+                                    <option  value="Competitive Programming">Competitive Programming</option>
+                                    
+                                  </select>
+                            </div>
+                          
+                          
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="textbox">
+                               
+                          <select  name="level" required value="<%= data.level%>">
+                              <option selected>Experience</option>
+                            <option  value="Pro">Pro</option>
+                            <option  value="Intermediate">Intermediate</option>
+                            <option value="Beginner">Beginner</option>
+                            
+                          </select>
+                            </div>
+                          
+                        </div>
+                      </div>
+                    
+                      <div class="form-row">
+                        
+                        <div class="form-group col-md-6">
+                          <label for="sex" class="form-check-label" style="font-size: 18px;">
+                              Gender: 
+                             </label>
+                          <div class="form-check"> 
+                           <input class="form-check-input radio1" type="radio" name="sex" value="Male" required>
+                            <label for="male" class="form-check-label" style="font-size: 18px;">
+                              &nbsp;Male
+                            </label>
+                          </div>
+                          <div class="form-check">
+                              <input class="form-check-input radio1" type="radio" name="sex" value="female" required>
+                              <label  for="Female" class="form-check-label" style="font-size: 18px;">
+                               &nbsp;Female
+                              </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="textbox">
+                                <i class="fas fa-comments"></i><textarea  name="feedback" placeholder = "Your Suggestion." value="<%= data.feedback%>"></textarea></div>
+                          
+                        
+                      </div>
                     </div>
-                  </div>
-              
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input radio1" name="agreement" type="checkbox"required>
+                        <label for="agreement" class="form-check-label" style="font-size: 18px;">
+                          &nbsp;I Agree. &nbsp;&nbsp; <a href="/about" style="color:black ; font-size: 14px;">Please Read Our Terms & Conditions Before Registering.</a>
+                        </label>
+                      </div>
+                    </div>
+                    <button type="submit" name ="submit" class="btn2">Register</button>
+                  </form>
+                  <div class="form-row arrange">
+                    <div class="form-group col-md-6" style="text-align: left; align-items: left;">
+                        <p><i class="card-box fa fa-user"></i>&nbsp;&nbsp;Developer: Bishal Bista</p>
+                     
+                    </div>
+                   
                   
-                  <button type="submit" name ="submit" class="btn btn-primary">Register</button>
-                </form>
+                    <div class="form-group col-md-6" style="text-align: right;">
+                        <a class="ms" href="https://www.facebook.com/profile.php?id=100003942614290"><i class="fab fa-facebook-square"></i></a>
+                        <a class="ms" href="https://twitter.com/b3hal9"><i class="fab fa-twitter-square"></i></a>
+                        <a class="ms" href="https://github.com/b3hal9"><i class="fab fa-github-square"></i></a>
+                        <a class="ms" href="https://www.instagram.com/b3hal9/"><i class="fab fa-instagram"></i></a>
+                  </div>
+              </div>
+                  </div>
+                  <div class="card-footer text-center text-dark bg-transparent" style="align-items: center; border: none; outline: none;">
+                    <a href="/about"><button class="btn btn-primary">About</button></a>
+                
                 </div>
-          
-      </div>
-    </div>
+                
+                  
 
-   
+                  
+            
+        </div>
+      </div>
+    
+      <script type="text/javascript">
+        faculty = document.getElementById("faculty");
+        Grade = document.getElementById("Grade");
+    
+    function setGrade(){
+        resetGradeOpt();
+        switch(faculty.value){
+          case "Bsc.CSIT":
+          case "BBS": for (i = 0 ; i < 4  ;i++ ){
+                              var option =  document.createElement("option");
+                              option.text = i+1+"yr";
+                              option.value = i+1;
+                              Grade.add(option);
+                            }
+                            break;
+    
+          case "Diploma Civil": 
+          case "Diploma Computer":
+                            for (i = 0 ; i < 3  ;i++ ){
+                              var option =  document.createElement("option");
+                              option.text = i+1+"yr";
+                              option.value = i+1;
+                              Grade.add(option);
+                            }
+                            break;
+          case "Management":
+          case "Science":
+          case "Hotel Management":
+                            for (i = 0 ; i < 2  ;i++ ){
+                              var option =  document.createElement("option");
+                              option.text = "1"+eval(i+1);
+                              option.value = i+1;
+                              Grade.add(option);
+                            }
+                            break;
+    
+       
+        }  
+    }
+    
+    function resetGradeOpt(){
+      while(Grade.options.length > 0){
+        Grade.remove(0);
+      }
+    }
+    
+      
+    
+    
+    </script>
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+
+
+
+
+

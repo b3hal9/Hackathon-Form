@@ -7,36 +7,34 @@
     <title><%=title%></title>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style>
-    .custom{
-        
-        justify-content: center;
-        
-    }
-    </style>
+
 </head>
 <body>
 
     
-            <h2 style="text-align: center; color:red;"><%=title%></h2>
-            <h3 style="text-align: center;"><%=message%></h3>
+            <h2 style="text-align: center; color:red;"><%= title%></h2>
+            <h3 style="text-align: center;"><%= message%></h3>
+
             <div class="container pt-5  custom" >
-               
+                           
               <div class="card"  style="align-items: center;">
-               <div class="card-header text-center text-dark"><p class="h2" style="text-decoration: underline ; font-weight: bold;">Godawari Hackathon:</p></div>
-               <div class="card-body bg-dark text-white">
+               <div class="card-header text-center text-dark bg-transparent"><p class="h3" style="text-decoration: underline ; font-weight: bold;">Godawari Hackathon:</p></div>
+               <div class="card-body text-dark photo">
               <form action="/register" method="POST">
                 <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="first">First Name:</label>
-                  <input type="text" class="form-control" name="first" required value="<%= data.first %>" >
+                  <input type="text" class="form-control" name="first" required value="<%= data.first %>">
                   <% if(error.first) { %>
-                    <p style="color: red;"><%=error.first.msg%></p>
+                    <p style="color: red;"><%= error.first.msg%></p>
                   <% } %>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="last">Last Name:</label>
                   <input type="text" class="form-control" name="last" required value="<%= data.last %>">
+                  <% if(error.last) { %>
+                    <p style="color: red;"><%= error.last.msg%></p>
+                  <% } %>
                 </div>
               </div>
                   <div class="form-group">
@@ -49,10 +47,9 @@
                         <div class="input-group-text">+977</div>
                       </div>
                       <input type="number" name="phone" class="form-control" placeholder="Your Phone number: " required value="<%= data.phone %>">
-                      
                     </div>
                     <% if(error.phone) { %>
-                      <p style="color: red;"><%=error.phone.msg%></p>
+                      <p style="color: red;"><%= error.phone.msg%></p>
                     <% } %>
                   
                   <!-- <div class="form-group">
@@ -62,8 +59,8 @@
                  -->
                     <div class="form-group col-md-">
                       <label for = "faculty" >Faculty :</label>
-                      <select name ="faculty" class="form-control" value="<%= data.faculty %>">
-                        <option  value="Bsc.CSIT" selected>Bsc.CSIT</option>
+                      <select id="faculty" onchange="setGrade()" name ="faculty" class="form-control" required >
+                        <option  value="Bsc.CSIT">Bsc.CSIT</option>
                         <option  value="Diploma Civil">Diploma Civil</option>
                         <option  value="Diploma Computer">Diploma Computer</option>
                         <option value="Management">Management</option>
@@ -75,68 +72,71 @@
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <select name="Grade" class="form-control" value="<%= data.Grade %>">
-                          <option value="3rd yr" selected >3rd yr</option>
-                          <optgroup label="+2">
-                            <option  value="11">11</option>
-                            <option  value="12">12</option>
-                          </optgroup>
-                          <optgroup label="Diploma">
-                            <option value="1st yr">1yr</option>
-                            <option value="2nd yr">2yr</option>
-                            <option value="3rd yr">3yr</option>
-                          </optgroup>
-                          <optgroup label="Bachelor">
-                            <option value="1st yr">1yr</option>
-                            <option value="2nd yr">2yr</option>
-                            <option value="3rd yr">3yr</option>
-                            <option value="4th yr">4yr</option>
-                          </optgroup>
-                        </select>
+                        <select id="Grade" name="Grade" class="form-control" required="">
+                     
+                          <option value="1st yr">1yr</option>
+                          <option value="2nd yr">2yr</option>
+                          <option value="3rd yr">3yr</option>
+                          <option value="4th yr">4yr</option>           
+                      </select>
                       </div>
                       <div class="form-group col-md-6">
-                        <input type="text" name="section" class="form-control" placeholder="Mention your Section here. " value="<%= data.section %>">
+                        <input type="text" name="section" class="form-control" placeholder="Your section/Semister " value="<%= data.section %>">
+                        <small class="form-text text-muted">This is not mandatory.</small>
                       </div>
                     </div>
                     
                      
-                    
-                    <div class="form-group col-md-">
-                      <label for="field">Your Field of Interest :</label>
-                      <select  name="field" class="form-control" value="<%= data.field %>">
-                        <option  value="Static Webpage Designing">Static Web Page Designing</option>
-                        <option  value="Competitive Programming">Competitive Programming</option>
-                        
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="sex" class="form-check-label" >
-                          Gender : 
-                         </label>
-                      <div class="form-check">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="field">Interested In :</label>
+                        <select  name="field" class="form-control">
+                          <option  value="Static Webpage Designing">Static WebPage Designing</option>
+                          <option  value="Competitive Programming">Competitive Programming</option>
                           
-                        <input class="form-check-input" type="radio" name="sex" value="Male" required value="<%= data.sex %>">
-                        <label for="male" class="form-check-label" >
-                         Male
-                        </label>
+                        </select>
                       </div>
-                      <div class="form-check">
-                         
-                          <input class="form-check-input" type="radio" name="sex" value="female" required value="<%= data.sex %>">
-                          <label  for="Female" class="form-check-label" >
-                           Female
+                      <div class="form-group col-md-6">
+                        <label for="level">I'm a:</label>
+                        <select  name="level" class="form-control">
+                          <option  value="Pro">Pro</option>
+                          <option  value="Intermediate">Intermediate</option>
+                          <option value="Beginner">Beginner</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                  
+                    <div class="form-row">
+                      
+                      <div class="form-group col-md-6">
+                        <label for="sex" class="form-check-label" >
+                            Gender : 
+                           </label>
+                        <div class="form-check"> 
+                         <input class="form-check-input" type="radio" name="sex" value="Male" required>
+                          <label for="male" class="form-check-label" >
+                           Male
                           </label>
                         </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sex" value="female" required>
+                            <label  for="Female" class="form-check-label" >
+                             Female
+                            </label>
+                          </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="feedback">Expection from us :</label>
+                        <textarea class="form-control" name="feedback" placeholder = "Your Suggestion." value="<%= data.feedback %>"></textarea>
                     </div>
-                   
-                    <div class="form-group">
-                      <label for="feedback">Feedback :</label>
-                      <textarea class="form-control" name="feedback" placeholder = "Your Suggestion." value="<%= data.feedback %>"></textarea>
-                  </div>
+                    </div>
+                  
+                  
                 
                   <div class="form-group">
                     <div class="form-check">
-                      <input class="form-check-input" name="agreement" type="checkbox"required value="<%= data.agreement %>">
+                      <input class="form-check-input" name="agreement" type="checkbox"required>
                       <label for="agreement" class="form-check-label">
                         I Agree. <a href="/about" >Please Read Our Terms & Conditions Before Sumbiting.</a>
                       </label>
@@ -150,9 +150,70 @@
           
       </div>
     </div>
+  
+    <script type="text/javascript">
+      faculty = document.getElementById("faculty");
+      Grade = document.getElementById("Grade");
+  
+  function setGrade(){
+      resetGradeOpt();
+      switch(faculty.value){
+        case "Bsc.CSIT":
+        case "BBS": for (i = 0 ; i < 4  ;i++ ){
+                            var option =  document.createElement("option");
+                            option.text = i+1+"yr";
+                            option.value = i+1;
+                            Grade.add(option);
+                          }
+                          break;
+  
+        case "Diploma Civil": 
+        case "Diploma Computer":
+                          for (i = 0 ; i < 3  ;i++ ){
+                            var option =  document.createElement("option");
+                            option.text = i+1+"yr";
+                            option.value = i+1;
+                            Grade.add(option);
+                          }
+                          break;
+        case "Management":
+        case "Science":
+        case "Hotel Management":
+                          for (i = 0 ; i < 2  ;i++ ){
+                            var option =  document.createElement("option");
+                            option.text = "1"+eval(i+1);
+                            option.value = i+1;
+                            Grade.add(option);
+                          }
+                          break;
+  
+     
+      }  
+  }
+  
+  function resetGradeOpt(){
+    while(Grade.options.length > 0){
+      Grade.remove(0);
+    }
+  }
+  
+    
+  
+  
+  </script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+  
+            
