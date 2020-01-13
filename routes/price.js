@@ -5,7 +5,7 @@ router.use(express.static(__dirname + './src'));
 
 router.get('/about',(req, res)=>{
     
-    res.render('team',{});
+    res.render('../views/price',{});
 })
 
 module.exports = router;

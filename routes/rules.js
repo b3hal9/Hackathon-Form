@@ -3,9 +3,9 @@ const express = require('express');
 const router = express.Router();
 router.use(express.static(__dirname + './src'));
 
-router.get('/about',(req, res)=>{
+router.get('/rules',(req, res)=>{
     
-    res.render('team',{});
+    res.render('terms',{});
 })
 
 module.exports = router;

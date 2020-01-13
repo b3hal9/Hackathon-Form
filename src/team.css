@@ -1,0 +1,90 @@
+.mainh{
+	padding-bottom: 40px;
+}
+
+.row{
+	margin-top: 70px;
+}
+
+.socialicon{
+	font-size: 30px;
+}
+
+.socialicon a:hover{
+	font-size: 33px;
+}
+
+.imgcircle{
+	border-radius: 200px;
+}
+
+.imgcnt{
+	text-align: center;
+}
+
+/* Facebook, twitter, git, insta icon */
+.fbicon{
+	color: darkblue;
+}
+
+.twicon{
+	color: blue;
+}
+
+.inicon{
+	color: #3f729b;
+}
+
+.giticon{
+	color: #31353b;
+}
+
+@media (max-width: 620px)
+{
+
+	.mainh{
+		margin-bottom: -50px;
+	}
+
+	.col{
+		width: 100%;
+		text-align: center;
+	}
+
+	.mbl{
+		display: inline-block;
+		text-align: left;
+	}
+
+	.imgcircle{
+		margin-bottom: 20px;
+	}
+
+	.socialicon{
+		margin-top: -50px;
+	}
+
+	.container{
+		border-bottom: 2px dashed grey;
+	}
+
+	blockquote{
+		text-align: center;
+	}
+
+	.socialicon{
+		text-align: center;
+	}
+}
+
+
+.link{
+    color: black;
+    cursor: pointer; 
+    
+    margin-right: 25px;
+}
+.link:hover{
+	color: navy;
+	
+}

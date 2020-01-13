@@ -34,7 +34,7 @@ router.post('/register',[
 if(!errors.isEmpty()){
     // return res.status(422).json({errors: errors.mapped()});
     
-    res.render('../views/index',{title: 'invalid data',message:'Check Your Data', error:errors.mapped(),data:data});
+    res.render('../views/index',{title: 'invalid data',message:'Check Your Data!!', error:errors.mapped(),data:data});
     
 
 }else{

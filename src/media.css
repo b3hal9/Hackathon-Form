@@ -1,8 +1,20 @@
 *{
     font-family: sans-serif;
+    /* color: rgb(247, 231, 201); */
+    color: rgb(0, 0, 0);
+    background: #34ace0;
+    
+    
+    font-size: 18px;
+    /* font-weight: bold; */
+
+}
+::placeholder{
+   color: rgb(0, 0, 0);
+    /* color: rgb(247, 231, 201); */
 }
 .textbox{
-border-bottom : 2px solid #4caf50;
+border-bottom : 2px solid navy;
 margin: 8px 0;
 font-size: 20px;
 overflow: hidden;
@@ -19,7 +31,7 @@ padding-right: 20px;
 border: none;
 background: none;
 outline: none;
-color: black;
+
 font-size: 18px;
 width: 80%;
 float: left;
@@ -29,7 +41,7 @@ margin: 0 10px;
 border: none;
 background: none;
 outline: none;
-color: black;
+
 font-family: sans-serif;
 font-size: 18px;
 width: 80%;
@@ -40,25 +52,32 @@ margin: 0 10px;
 border: none;
 background: none;
 outline: none;
-color: black;
+
 font-size: 18px;
 width: 80%;
 float: left;
 margin: 0 10px;
 }
 .btn2{
-width: 100%;
-background: none;
-border: 2px solid #4caf50;
-color:navy;
-padding:5px;
-cursor: pointer;
-font-size: 18px;
-margin: 12px 0;
+    width: 100%;
+    background: none;
+    border: 2px solid navy;
+    border-radius: 10px;
+    /* color:rgb(9; */
+    padding:5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 12px 0;
+    }
+.btn2:hover{
+    color:#08fa10 ;
+    border: 2px solid #08fa10;
+
 }
 .radio1{
 width: 18px;
 height: 18px;
+
 }
 
 .ms{
@@ -85,4 +104,31 @@ height: 18px;
 .mk{
     margin-bottom: 2px;
     padding-bottom: 1px;
+     border-radius: 10px; 
+     border : 2px solid navy;
+     background: transparent;
+}
+
+@media (min-width: 600px){
+    .pg{
+        margin-left: 471px;
+        margin-right:471px ;
+        
+       
+    }
+}
+.pg{
+    background: #34ace0;
+    border: 2px solid navy;
+    border-radius: 10px;
+    /* font-weight: bold; */
+}
+.link{
+    color: black;
+    cursor: pointer; 
+    
+    margin-right: 25px;
+}
+.link:hover{
+    color: white;
 }

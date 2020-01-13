@@ -19,13 +19,14 @@ app.set("view engine", "ejs");
 
 const server = http.createServer(app);
 const PORT = process.env.PORT ||5000;
+const about=require('./routes/about');
+const rules = require('./routes/rules');
 
+app.use(rules);
+// app.use('/price',price);
 
 app.use(router);
-app.get('/about',(req, res)=>{
-    
-    res.render('terms',{});
-})
+app.use(about);
 
 
 
