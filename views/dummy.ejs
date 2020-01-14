@@ -4,152 +4,216 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%= title %></title>
+    <title><%= title%></title>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="media.css">
 </head>
 <body>
-
+  <div>
+    <nav class="pg navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand text-dark" style="font-weight: bold; margin-right: 40px;">Godawari Hackathon</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="link"  href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="link " href="/rules">Rules</a>
+          </li>
+          <li class="nav-item">
+            <a class="link" href="/about">About Us</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav></div>
     
 
-      
-            <div class="container pt-5  custom" >
-               
-                <div class="card"  style="align-items: center;">
-                 <div class="card-header text-center text-dark bg-transparent"><p class="h3" style="text-decoration: underline ; font-weight: bold;">Godawari Hackathon:</p></div>
-                 <div class="card-body text-dark photo">
+   
+                <div class="card"  style="align-items: center; border: none; outline: none;background-color: #34ace0;">
+                 <!-- <div class="card-header text-center text-dark bg-transparent" style="align-items: center; border: none; outline: none;"><p class="h3" style="text-decoration: underline ; font-weight: bold;">Godawari Hackathon:</p></div> -->
+                 <div class="card-body mk text-dark">
+                  <h5 style="text-align: center; color: red;"><%= message%></h5><br/>
                 <form action="/register" method="POST">
                   <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="first">First Name:</label>
-                    <input type="text" class="form-control" name="first" required value="<%= data.first %>">
-                    <% if(error.first) { %>
-                      <p style="color: red;"><%= error.first.msg%></p>
-                    <% } %>
+                   <div class="textbox">
+                    <i class="card-box fa fa-user"></i> <input type="text" name="first" required placeholder="First Name">
+                   </div>
+                   
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="last">Last Name:</label>
-                    <input type="text" class="form-control" name="last" required value="<%= data.last %>">
-                    <% if(error.last) { %>
-                      <p style="color: red;"><%= error.last.msg%></p>
-                    <% } %>
+                    <div class="textbox"> <i class="card-box fa fa-user"></i> <input type="text" name="last" required placeholder="Last Name"></div>
+                    
                   </div>
                 </div>
-                    <div class="form-group">
-                        <label for = 'email'>Email :</label>
-                        <input type="email" class="form-control" name ="email" placeholder="name@example.com" required value="<%= data.email %>">
-                        <small class="form-text text-muted">Please use your valid Email Address.</small>
-                      </div>
-                    <div class="input-group mb-2 mr-sm-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">+977</div>
-                        </div>
-                        <input type="number" name="phone" class="form-control" placeholder="Your Phone number: " required value="<%= data.phone %>">
-                      </div>
-                      <% if(error.phone) { %>
-                        <p style="color: red;"><%= error.phone.msg%></p>
-                      <% } %>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
                     
-                    <!-- <div class="form-group">
-                      <label >Address :</label>
-                      <input type="text" class="form-control" placeholder="Your Current Address">
+                        <div class="textbox">
+                          <i class="fas fa-envelope"></i>  <input type="email"  name ="email" placeholder="Email Address" required>
+                        </div>
+                        
+                            <small class="form-text text-muted">Please use your valid Email Address.</small>
                     </div>
-                   -->
-                      <div class="form-group col-md-">
-                        <label for = "faculty" >Faculty :</label>
-                        <select id="faculty" onchange="setGrade()" name ="faculty" class="form-control" required >
-                          <option  value="Bsc.CSIT">Bsc.CSIT</option>
-                          <option  value="Diploma Civil">Diploma Civil</option>
-                          <option  value="Diploma Computer">Diploma Computer</option>
-                          <option value="Management">Management</option>
-                          <option  value="Science">Science</option>
-                          <option value="Hotel Management">Hotel Management</option>
-                          <option  value="BBS">BBS</option>
+                    <div class="form-group col-md-6">
+                    
+                        <div class="textbox">
+                            <i class="card-icon fas fa-phone"></i><input type="number" name="phone" placeholder="Phone Number " required>
+                        </div>
+                        
+                    
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for = 'faculty'>Faculty:</label>
+                      <div class="textbox">
 
-                        </select>
+                     
+                             <select id="faculty" onchange="setGrade()" name ="faculty"  required >
+                             
+                             <option  value="Bsc.CSIT" selected>Bsc.CSIT</option>
+                             <option  value="Diploma Civil">Diploma Civil</option>
+                             <option  value="Diploma Computer">Diploma Computer</option>
+                             <option value="Management">Management</option>
+                             <option  value="Science">Science</option>
+                             <option value="Hotel Management">Hotel Management</option>
+                             <option  value="BBS">BBS</option>
+     
+                             </select>
+                     </div>
+                 </div>
+                  <div class="form-group col-md-6">
+                    <label for = 'Grade'>Class :</label>
+                      <div class="textbox">
+                    <select id="Grade" name="Grade"  required="">
+                      
+                      <option value="1st yr">1st yr</option>
+                      <option value="2nd yr">2nd yr</option>
+                      <option value="3rd yr" selected>3rd yr</option>
+                      <option value="4th yr">4th yr</option>           
+                  </select>
+                  </div>
+                  </div>
+               
+                </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <div class="textbox"><i class="fas fa-layer-group"></i><input type="text" name="section"  placeholder="Your section/Semister "></div>
+                      
+                        <small class="form-text text-muted">This is not mandatory.</small>
+                         
                       </div>
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <select id="Grade" name="Grade" class="form-control" required="">
-                       
-                            <option value="1st yr">1yr</option>
-                            <option value="2nd yr">2yr</option>
-                            <option value="3rd yr">3yr</option>
-                            <option value="4th yr">4yr</option>           
-                        </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <input type="text" name="section" class="form-control" placeholder="Your section/Semister " value="<%= data.section %>">
-                          <small class="form-text text-muted">This is not mandatory.</small>
-                        </div>
-                      </div>
+                            <div class="form-group col-md-6">
+                                <div class="textbox">
+                                    <i class="card-icon fas fa-map-marker-alt"></i> <input type="text"  name="address" placeholder="Your Address">
+                                </div>
+                            </div>
+                      
+                          
+                    </div>
+                   
                       
                        
                       <div class="form-row">
                         <div class="form-group col-md-6">
-                          <label for="field">Interested In :</label>
-                          <select  name="field" class="form-control">
-                            <option  value="Static Webpage Designing">Static WebPage Designing</option>
-                            <option  value="Competitive Programming">Competitive Programming</option>
-                            
-                          </select>
+                          <label for="field">Interested In:</label>
+                            <div class="textbox">
+                                <select  name="field" >
+                                    
+                                    <option  value="Static Webpage Designing" selected>Static WebPage Designing</option>
+                                    <option  value="Competitive Programming">Competitive Programming</option>
+                                    
+                                  </select>
+                            </div>
+                          
+                          
                         </div>
                         <div class="form-group col-md-6">
                           <label for="level">I'm a:</label>
-                          <select  name="level" class="form-control">
+                            <div class="textbox">
+                               
+                          <select  name="level" required>
+                          
                             <option  value="Pro">Pro</option>
                             <option  value="Intermediate">Intermediate</option>
-                            <option value="Beginner">Beginner</option>
+                            <option value="Beginner" selected>Beginner</option>
                             
                           </select>
+                            </div>
+                          
                         </div>
                       </div>
                     
                       <div class="form-row">
                         
                         <div class="form-group col-md-6">
-                          <label for="sex" class="form-check-label" >
-                              Gender : 
+                          <label for="sex" class="form-check-label" style="font-size: 18px;">
+                              Gender: 
                              </label>
                           <div class="form-check"> 
-                           <input class="form-check-input" type="radio" name="sex" value="Male" required>
-                            <label for="male" class="form-check-label" >
-                             Male
+                           <input class="form-check-input radio1" type="radio" name="sex" value="Male" required>
+                            <label for="male" class="form-check-label" style="font-size: 18px;">
+                              &nbsp;Male
                             </label>
                           </div>
                           <div class="form-check">
-                              <input class="form-check-input" type="radio" name="sex" value="female" required>
-                              <label  for="Female" class="form-check-label" >
-                               Female
+                              <input class="form-check-input radio1" type="radio" name="sex" value="female" required>
+                              <label  for="Female" class="form-check-label" style="font-size: 18px;">
+                               &nbsp;Female
                               </label>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                          <label for="feedback">Expection from us :</label>
-                          <textarea class="form-control" name="feedback" placeholder = "Your Suggestion." value="<%= data.feedback %>"></textarea>
+                            <div class="textbox">
+                                <i class="fas fa-comments"></i><textarea  name="feedback" placeholder = "Your Suggestion."></textarea></div>
+                          
+                        
                       </div>
-                      </div>
-                    
-                    
-                  
+                    </div>
                     <div class="form-group">
                       <div class="form-check">
-                        <input class="form-check-input" name="agreement" type="checkbox"required>
-                        <label for="agreement" class="form-check-label">
-                          I Agree. <a href="/about" >Please Read Our Terms & Conditions Before Sumbiting.</a>
+                        <input class="form-check-input radio1" name="agreement" type="checkbox"required>
+                        <label for="agreement" class="form-check-label" style="font-size: 18px;">
+                          &nbsp;I Agree. &nbsp;&nbsp; <a href="/rules" style=" font-size: 14px;">Please Read Our Terms & Conditions Before Registering.</a>
                         </label>
                       </div>
                     </div>
-                
-                    
-                    <button type="submit" name ="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" name ="submit" class="btn2">Register</button>
                   </form>
+                  <div class="form-row arrange">
+                    <div class="form-group col-md-6" style="text-align: left; align-items: left;">
+                        <p style="font-weight:bold;"><i class="card-box fa fa-user"></i>&nbsp;&nbsp;Developer: Bishal Bista</p>
+                     
+                    </div>
+                   
+                  
+                    <div class="form-group col-md-6" style="text-align: right;">
+                        <a class="ms" href="https://www.facebook.com/profile.php?id=100003942614290"><i class="fab fa-facebook-square"></i></a>
+                        <a class="ms" href="https://twitter.com/b3hal9"><i class="fab fa-twitter-square"></i></a>
+                        <a class="ms" href="https://github.com/b3hal9"><i class="fab fa-github-square"></i></a>
+                        <a class="ms" href="https://www.instagram.com/b3hal9/"><i class="fab fa-instagram"></i></a>
                   </div>
+              </div>
+                  </div>
+                  <div class="card-footer text-center text-dark bg-transparent" style="align-items: center; border: none; outline: none;">
+                    <p>2020 © Godawari Hackathon. All right reserved </p>
+                
+                </div>
+                
+                  
+
+                  
             
         </div>
-      </div>
+  
     
       <script type="text/javascript">
         faculty = document.getElementById("faculty");

@@ -116,6 +116,12 @@
                
                 </div>
                     <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <div class="textbox"><i class="fas fa-layer-group"></i><input type="text" name="section" value="<%= data.section %>" placeholder="Your section/Semister "></div>
+                      
+                        <small class="form-text text-muted">This is not mandatory.</small>
+                         
+                      </div>
                             <div class="form-group col-md-6">
                                 <div class="textbox">
                                     <i class="card-icon fas fa-map-marker-alt"></i> <input type="text" name="address" value="<%= data.address %>" placeholder="Your Address">
@@ -125,12 +131,7 @@
                                 <% } %>
                             </div>
                       
-                          <div class="form-group col-md-6">
-                            <div class="textbox"><i class="fas fa-layer-group"></i><input type="text" name="section" value="<%= data.section %>" placeholder="Your section/Semister "></div>
                           
-                            <small class="form-text text-muted">This is not mandatory.</small>
-                             
-                          </div>
                     </div>
                    
                       
@@ -195,7 +196,7 @@
                       <div class="form-check">
                         <input class="form-check-input radio1" name="agreement" type="checkbox"required>
                         <label for="agreement" class="form-check-label" style="font-size: 18px;">
-                          &nbsp;I Agree. &nbsp;&nbsp; <a href="/about" style=" font-size: 14px;">Please Read Our Terms & Conditions Before Registering.</a>
+                          &nbsp;I Agree. &nbsp;&nbsp; <a href="/rules" style=" font-size: 14px;">Please Read Our Terms & Conditions Before Registering.</a>
                         </label>
                       </div>
                     </div>
