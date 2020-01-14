@@ -116,6 +116,17 @@ height: 18px;
         
        
     }
+    
+}
+
+@media (min-width: 800px){
+    .pg{
+        margin-left: 475px;
+        margin-right:475px ;
+        
+       
+    }
+    
 }
 .pg{
     background: #34ace0;
